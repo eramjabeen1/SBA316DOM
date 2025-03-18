@@ -1,0 +1,55 @@
+/* importing a spooky font */
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+body {
+    background-color: black; /* setting a dark background for spooky effect */
+    color: red; /* making text red for scary vibes */
+    font-family: "Creepster", cursive; /* applying the spooky font */
+    text-align: center; /* centering text */
+    padding: 20px; /* adding some space around the content */
+}
+
+#story-container {
+    max-width: 600px; /* limiting the story width */
+    margin: auto; /* centering the story */
+    font-size: 20px; /* making text a bit bigger */
+    background: rgba(0, 0, 0, 0.8); /* adding a dark transparent background */
+    padding: 20px;
+    border-radius: 10px; /* giving it smooth edges */
+    box-shadow: 0 0 15px red; /* adding a red glow effect */
+}
+
+button {
+    background-color: darkred; /* spooky red button */
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: crimson; /* button turns brighter when hovered */
+}
+
+#quiz-container {
+    display: none; /* hiding quiz until needed */
+    background: rgba(255, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.option {
+    display: block; /* making options appear as buttons */
+    background: red;
+    color: white;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: darkred; /* spooky hover effect */
+}
