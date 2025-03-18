@@ -1,33 +1,32 @@
-// caching important elements
-const storyText = document.getElementById("story-text"); // story paragraph
-const nextBtn = document.getElementById("next-btn"); // next button
+// caching elements
+const storyText = document.getElementById("story-text"); // paragraph for story
+const nextBtn = document.getElementById("next-btn"); // button for next
 const quizContainer = document.getElementById("quiz-container"); // quiz section
-const options = document.querySelectorAll(".option"); // all quiz answer choices
+const options = document.querySelectorAll(".option"); // all quiz answers
 
-// an array to store different parts of the story
+// adapted story from "Casting the Runes"
 let storyParts = [
-    "you wake up in a dark forest, the air thick with silence…",
-    "the trees seem to whisper, though there is no wind…",
-    "a distant cry echoes in the night, sending chills down your spine…",
-    "you take a step forward, but something grabs your ankle…",
-    "suddenly, everything goes dark…",
-    "quiz time! what was the last thing you saw?", // quiz appears here
-    "you hear a whisper behind you... but no one is there.", // story continues after quiz
-    "a cold hand touches your shoulder. you turn around slowly...",
+    "a researcher at the british museum, mr. dunning, found a mysterious letter on his desk…",
+    "it was from a man named karswell—a scholar of the occult, known for his dangerous beliefs…",
+    "inside the letter was a slip of paper, covered in strange symbols...",
+    "at first, dunning thought nothing of it. but then… strange things began to happen.",
+    "shadows moved in the corners of his vision. whispers echoed in empty rooms.",
+    "quiz time! what happens when someone is given the cursed runes?", // quiz appears here
+    "dunning realized the truth—he had only a few days before something would come for him.",
+    "the only way to survive was to pass the runes to someone else… or face the unknown.",
     "end of the story... or is it?"
 ];
 
-let currentPart = 0; // tracking which part of the story we are on
-let quizAnswered = false; // flag to track if quiz is done
+let currentPart = 0; // track the part of the story
+let quizAnswered = false; // check if the quiz was completed
 
-// event listener for the next button
+// event listener for next button
 nextBtn.addEventListener("click", function() {
     if (!quizAnswered) {
-        // if we reach the quiz part, hide the next button and show the quiz
         if (currentPart === 5) {
             nextBtn.style.display = "none";
             quizContainer.style.display = "block";
-            return; // stop further execution until quiz is answered
+            return;
         }
     }
 
@@ -43,19 +42,19 @@ nextBtn.addEventListener("click", function() {
     }
 });
 
-// looping through all quiz options and adding event listeners
+// looping through quiz options
 options.forEach(option => {
     option.addEventListener("click", function() {
         if (option.dataset.answer === "right") {
-            option.style.backgroundColor = "green"; // turn correct answer green
-            storyText.textContent = "you remember… the eyes. they are still watching you."; // update story
+            option.style.backgroundColor = "green"; // correct answer turns green
+            storyText.textContent = "dunning realized the truth—he had only a few days before something would come for him."; // continue story
             quizContainer.style.display = "none"; // hide quiz
-            quizAnswered = true; // flag that quiz is answered
-            nextBtn.style.display = "block"; // show next button
-            currentPart++; // move to the next story part after quiz
+            quizAnswered = true; // mark quiz as done
+            nextBtn.style.display = "block"; // bring back next button
+            currentPart++; // move story forward
         } else {
-            option.style.backgroundColor = "black"; // make wrong answers dark
-            window.alert("a ghostly whisper surrounds you..."); // spooky alert
+            option.style.backgroundColor = "black"; // wrong answers turn dark
+            window.alert("a shadow moves behind you, closer than before..."); // spooky message
         }
     });
 });
